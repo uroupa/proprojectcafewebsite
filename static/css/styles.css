@@ -1,0 +1,47 @@
+.navbar{
+    margin-bottom: 0px;
+}
+
+.main-content {
+  background-color: #768799;
+  }
+
+.jumbotron{
+    background-color: #768799;
+    margin-bottom: 0px;
+}
+
+.jumbotron h1 {
+  color: white;
+}
+
+.jumbotron p {
+  color: white;
+}
+
+.cafe-section-label {
+    color: white;
+
+}
+.map-section {
+  background-color: grey;
+  margin-top: 10px;
+}
+
+.cafe {
+  padding: 20px;
+}
+
+.cafe-row {
+  background-color: beige;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cafe-name img {
+  float:right;
+  width:200px;
+  height:200px;
+  border-radius: 10%;
+  padding: 10px;
+}

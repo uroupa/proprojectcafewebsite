@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+
+{% endblock %}
+
+
+{% block title %}uroups's Cafe Recommendations{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">☕️ Coffee & Wifi 💻</h1>
+  <p class="lead">Want to work in a cafe but need power and wifi?</p>
+  <hr class="my-4">
+  <p>You've found the right place! Checkout my collection of cafes with data on power socket availability, wifi speed and coffee quality.</p>
+  <a class="btn btn-warning btn-lg" href=" {{ url_for('home') }} " role="button">Show Me!</a>
+  <a class="btn btn-warning btn-lg" href=" {{ url_for('add_cafe') }} " role="button">Add a Cafe</a>
+</div>
+    </div>
+
+<div class="main-content">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12 cafe-section">
+      <h2 class="cafe-section-label">Cafes</h2>
+      {% for cafe in cafes:%}
+      <div class="row cafe-row">
+        <div class="cafe">
+          <div class="cafe-name">
+            <h2>{{cafe.name}}</h2>
+            <h3>{{cafe.location}}</h3>
+            <a href="{{cafe.map_url}}">Map Link</a>
+            <img src="{{cafe.img_url}}" alt="Cafe Image">
+          </div>
+        <div class="cafe-properties">
+          <div class="cafe-properties-row">
+            <p>Sockets: {{cafe.has_sockets}},
+            Toilets: {{cafe.has_toilet}},
+            Wifi: {{cafe.has_wifi}},
+            Can Take Calls: {{cafe.can_take_calls}},
+            Number of Seats: {{cafe.seats}}</p>
+            <div class="coffee-price-tag">
+              <h2>{{cafe.coffee_price}}</h2><p> per coffee.</p>
+            </div>
+          </div>
+          <div class="power-options">
+            <a href=" {{ url_for('delete_cafe', id=cafe.id) }} ">DELETE CAFE ❌</a>
+          </div>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
